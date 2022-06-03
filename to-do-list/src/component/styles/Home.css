@@ -1,0 +1,112 @@
+
+.header{
+    display: flex;
+    padding: 20px;
+    justify-content: space-around;
+    background-color: rgb(161, 238, 238);
+}
+
+.todo{
+    background-color: white;
+}
+
+.logoutBtn{
+    border: none;
+    background-color: rgb(42, 161, 122);
+    border-radius: 4px;
+    width: 130px;
+    height: 40px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.logoutBtn:focus{
+    background-color: rgb(182, 228, 231);
+    border: 1px solid rgb(12, 151, 161);
+    color: black;
+}
+
+.cardBody{
+    background-color: white;
+    width: 100vw;
+    height: 90vh;
+}
+
+.heading{
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.saveBtn{
+    background-color: rgb(167, 75, 75);
+}
+
+.inputToDo input{
+    height: 30px;
+    border: 1px solid rgb(185, 181, 181);
+    margin: 2px;
+    border-radius: 4px;
+}
+
+.inputToDo button{
+    height: 35px;
+    border: none;
+    margin: 2px;
+    background-color: rgb(42, 161, 122);
+    color: white;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.inputToDo button:focus{
+    color: black;
+    background-color: white;
+    border: 1px solid rgb(62, 56, 70);
+}
+
+
+.showItem{
+    margin: 40px;
+}
+
+.item{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(221, 217, 217);
+    padding: 10px;
+    border-radius: 5px;
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 15px;
+    font-size: 19px;
+}
+
+.dltBtn{
+    border: none;
+    font-size: 18px;
+    color: red;
+    margin-right: 10px;
+    border-radius: 4px;
+    background-color: rgb(250, 211, 211);
+}
+
+.editBtn{
+    color: green;
+    border: none;
+    font-size: 18px;
+    margin-right: 10px;
+    border-radius: 4px;
+    background-color: rgb(200, 224, 200);
+}
+
+@media  (max-width: 500px) {
+    .item{
+        width: 80%;
+    }
+}

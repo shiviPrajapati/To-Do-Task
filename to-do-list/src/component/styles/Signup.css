@@ -1,0 +1,62 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(136, 91, 136);
+}
+
+.signupDiv{
+    background-color: white;
+    border-radius: 5px;
+    height: fit-content;
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.signupForm{
+    margin: 20px;
+    margin-top: 50px;
+}
+
+
+.labelDiv{
+    text-align: left;
+    margin: 20px;
+    color: black;
+    font-size: 20px;
+}
+
+.textDiv{
+    width:max-content;
+    margin: 20px;
+    width: 80%;
+}
+
+.textDiv input{
+    height: 35px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid rgb(201, 197, 197);
+}
+
+.signupBtn{
+    border: none;
+    background-color: rgb(42, 161, 122);
+    border-radius: 4px;
+    width: 130px;
+    height: 40px;
+    margin: 30px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.signupBtn:focus{
+    background-color: rgb(182, 228, 231);
+    border: 1px solid rgb(12, 151, 161);
+    color: black;
+}
