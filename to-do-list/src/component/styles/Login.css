@@ -1,10 +1,9 @@
 body{
     font-family: 'Times New Roman', Times, serif;
-    background-color: rgb(136, 91, 136);
 }
 
 .loginDiv{
-    background-color: white;
+    background-color: rgb(235, 228, 228);
     border-radius: 5px;
     height: fit-content;
     padding: 20px;
@@ -36,6 +35,7 @@ body{
 }
 
 .loginTextDiv input{
+    padding-left: 10px;
     height: 35px;
     width: 100%;
     border-radius: 5px;
@@ -58,4 +58,8 @@ body{
     background-color: rgb(182, 228, 231);
     border: 1px solid rgb(12, 151, 161);
     color: black;
+}
+
+.errorMessage{
+    color: red;
 }

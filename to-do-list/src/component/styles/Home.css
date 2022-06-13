@@ -1,13 +1,43 @@
-
-.header{
-    display: flex;
-    padding: 20px;
-    justify-content: space-around;
-    background-color: rgb(161, 238, 238);
+html{
+    background-color: white;
 }
 
-.todo{
-    background-color: white;
+.header{
+    height: 40px;
+    display: flex;
+    padding: 20px;
+    background-color: rgb(196, 189, 189);
+}
+
+.heading{
+    font-size: 30px;
+    font-weight: bold;
+    width: 50%;
+    text-align: right;
+}
+
+.dropDown{
+    width: 50%;
+}
+
+.dropDown-Btn{
+    width: 100%;
+}
+
+.header-item{
+    position: relative;
+    background-color: rgb(230, 228, 228);
+    border-radius: 4px;
+    margin-right: 35%;
+}
+
+.dropDown-item{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.userPic{
+    width: 70px;
 }
 
 .logoutBtn{
@@ -27,34 +57,87 @@
     color: black;
 }
 
+
+
 .cardBody{
+    padding-bottom: 50px;
     background-color: white;
     width: 100vw;
-    height: 90vh;
+    height: fit-content;
+    font-family: 'Times New Roman', Times, serif;
 }
 
-.heading{
-    padding-top: 50px;
-    padding-bottom: 20px;
-    font-size: 30px;
-    font-weight: bold;
-}
 
 .saveBtn{
     background-color: rgb(167, 75, 75);
 }
 
-.inputToDo input{
-    height: 30px;
-    border: 1px solid rgb(185, 181, 181);
-    margin: 2px;
-    border-radius: 4px;
+.inputToDo{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 0 auto;
 }
 
-.inputToDo button{
+.title{
+    height: 20px;
+    border: 1px solid rgb(185, 181, 181);
+    margin-top: 70px;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.discription{
+    height: 50px;
+    border: 1px solid rgb(185, 181, 181);
+    margin-top: 20px;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.priority{
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.priority select{
+    height: 30px;
+    width: 55%;
+    margin-left: 20px;
+    border: 1px solid rgb(185, 181, 181);
+    border-radius: 4px;
+    padding-left: 10px;
+}
+
+.sortBtn{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sortBtn button{
+    background-color:aliceblue;
+    height: 35px;
+    border: 1px solid gray;
+    color: black;
+    border-radius: 4px;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 10px;
+    width: 300px;
+}
+
+.sortBtn button:focus{
+    background-color: rgb(42, 161, 122);
+    color: white;
+}
+
+
+.addtaskbtn{
+    margin-top:20px;
     height: 35px;
     border: none;
-    margin: 2px;
     background-color: rgb(42, 161, 122);
     color: white;
     font-weight: 500;
@@ -63,12 +146,11 @@
     padding: 10px;
 }
 
-.inputToDo button:focus{
+.addtaskbtn:focus{
     color: black;
     background-color: white;
     border: 1px solid rgb(62, 56, 70);
 }
-
 
 .showItem{
     margin: 40px;
@@ -77,6 +159,7 @@
 .item{
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     background-color: rgb(221, 217, 217);
     padding: 10px;
@@ -85,28 +168,60 @@
     margin: 0 auto;
     margin-top: 15px;
     font-size: 19px;
+    text-align: left;
 }
 
-.dltBtn{
-    border: none;
-    font-size: 18px;
-    color: red;
-    margin-right: 10px;
+.showTitle{
+    width: 100%;
+    font-weight: bold;
+}
+
+.showDetail{
+    margin-top: 10px;
+    width: 100%;
+}
+
+
+
+.itemBtn{
+    align-items: left;
+    margin-top: 10px;
+}
+
+
+.viewBtn{
+    border: 1px solid rgb(179, 176, 176);
     border-radius: 4px;
-    background-color: rgb(250, 211, 211);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.dltBtn{
+    border: 1px solid rgb(179, 176, 176);
+    border-radius: 4px;
+    margin-left: 15px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .editBtn{
-    color: green;
-    border: none;
-    font-size: 18px;
-    margin-right: 10px;
+    border: 1px solid rgb(179, 176, 176);
     border-radius: 4px;
-    background-color: rgb(200, 224, 200);
+    margin-left: 15px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.checkbox{
+    margin-left: 15px;
 }
 
 @media  (max-width: 500px) {
     .item{
         width: 80%;
+    }
+    .inputToDo{
+        width: 70%;
+    }
+    .header-item{
+        margin-right: 0%;
     }
 }

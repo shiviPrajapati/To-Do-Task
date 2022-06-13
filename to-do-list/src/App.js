@@ -1,11 +1,18 @@
 import './App.css';
-import Login from './component/Login';
+import NotFound from './component/NotFound';
+import { AuthContextProvider } from './component/context/AuthContext';
 import { BrowserRouter } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
-import Home from './component/Home';
-import Signup from './component/Signup';
-import { AuthContextProvider } from './component/context/AuthContext';
+import {lazy, Suspense} from "react";
+import Signup from "./component/Signup"
+const Home = lazy(() => import ('./component/Home'))
+const Login = lazy(() => import ('./component/Login'))
+
+
+
+
+
 
 function App() {
   return (
@@ -15,8 +22,9 @@ function App() {
 
           <Routes>
             <Route exact path='/' element={<Signup />}></Route>
-            <Route path='/login' element={<Login />}></Route>
+              <Route path='/login' element={<Login />}></Route>
             <Route path='/home' element={<Home />}></Route>
+            <Route path='*' element={<NotFound />}></Route>
           </Routes>
 
         </AuthContextProvider>
