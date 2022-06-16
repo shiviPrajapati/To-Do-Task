@@ -4,7 +4,7 @@ import { AuthContextProvider } from './component/context/AuthContext';
 import { BrowserRouter } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
-import {lazy, Suspense} from "react";
+import {lazy} from "react";
 import Signup from "./component/Signup"
 const Home = lazy(() => import ('./component/Home'))
 const Login = lazy(() => import ('./component/Login'))

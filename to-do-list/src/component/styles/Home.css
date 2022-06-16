@@ -6,7 +6,7 @@ html{
     height: 40px;
     display: flex;
     padding: 20px;
-    background-color: rgb(196, 189, 189);
+    background-color: rgb(139, 197, 149);
 }
 
 .heading{
@@ -25,10 +25,12 @@ html{
 }
 
 .header-item{
+    width: 30%;
     position: relative;
     background-color: rgb(230, 228, 228);
     border-radius: 4px;
-    margin-right: 35%;
+    margin-left: 35%;
+
 }
 
 .dropDown-item{
@@ -107,6 +109,7 @@ html{
     border: 1px solid rgb(185, 181, 181);
     border-radius: 4px;
     padding-left: 10px;
+    background-color: rgb(213, 245, 198);
 }
 
 .sortBtn{
@@ -161,7 +164,7 @@ html{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: rgb(221, 217, 217);
+    background-color: rgb(208, 248, 190);
     padding: 10px;
     border-radius: 5px;
     width: 30%;
@@ -181,6 +184,13 @@ html{
     width: 100%;
 }
 
+.showDisp{
+    color: rgb(68, 68, 68);
+}
+
+.showPriority{
+    color: rgb(68, 68, 68);
+}
 
 
 .itemBtn{
@@ -223,5 +233,7 @@ html{
     }
     .header-item{
         margin-right: 0%;
+        margin-left: 10%;
+        width: 95%;
     }
 }

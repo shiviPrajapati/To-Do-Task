@@ -5,7 +5,6 @@ import { FiChevronDown } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
 
-
 const getLocalItems = () => {
     let list = localStorage.getItem('lists');
     if (list) {
@@ -41,7 +40,7 @@ function Home() {
         if (inputTitle && inputDisp && !toggle) {
             setItems(
                 items.map((elem) => {
-                    if (elem.id === edit) { return { ...elem, name: inputTitle, disp: inputDisp, priority: inputPriority, status: "false", show: "false" } }
+                    if (elem.id === edit) { return { ...elem, name: inputTitle, disp: inputDisp, priority: inputPriority, complete: "false", status: "false", show: "false" } }
                     return elem;
                 })
             )
@@ -60,7 +59,7 @@ function Home() {
                 return elem
             })
             if(data === false){
-                const allInputData = { id: new Date().getTime().toString(), name: inputTitle, disp: inputDisp, priority: inputPriority, status: "false", show: "false" }
+                const allInputData = { id: new Date().getTime().toString(), name: inputTitle, disp: inputDisp, priority: inputPriority, complete: "false", status: "false", show: "false" }
                 setItems([...items, allInputData]);
             }
             
@@ -141,16 +140,32 @@ function Home() {
     }
 
 
+    const complete = (id) => {
+        let updatedItems = items.map((elem) => {
+            if (elem.id === id) {
+                if (elem.complete === 'false') {
+                    elem.complete = 'true'
+                }
+                else {
+                    elem.complete = 'false'
+                }
+            }
+            return elem;
+        })
+        setItems(updatedItems);
+        localStorage.setItem('lists', JSON.stringify(items))
+    }
+
+
 
     const sortPriority = () => {
         const sorted = items.sort((a, b) => {
             let fa = a.priority
-
             if (fa === "High")
                 return -1;
             if (fa === "Medium")
                 return 1;
-            return 0
+            return 0;
         })
         let updatedItems = items.map((elem) => {
             return elem
@@ -163,7 +178,7 @@ function Home() {
 
     const sortRecent = () => {
         const sorted = items.sort((a, b) => {
-            let fa = a.status
+            let fa = a.complete
             if (fa === "true")
                 return -1;
             if (fa === "false")
@@ -188,6 +203,7 @@ function Home() {
 
     return (
         <div>
+            <div className="headerDiv">
             <div className="header">
                 <div className="heading">To Do List</div>
                 <div className="dropDown">
@@ -204,6 +220,7 @@ function Home() {
                         )}
                     </div>
                 </div>
+            </div>
             </div>
 
 
@@ -225,7 +242,7 @@ function Home() {
                         </textarea>
                         <div className="priority">
                             <label>Choose Priority</label>
-                            <select value={inputPriority}
+                            <select className="selectpriority" value={inputPriority}
                                 onChange={(e) => setInputPriority(e.target.value)}>
                                 <option>Low</option>
                                 <option>Medium</option>
@@ -262,8 +279,8 @@ function Home() {
                                     return (
                                         <div className="item" key={elem.id}>
                                             {
-                                                elem.status === "true" ?
-                                                    <div style={{ textDecoration: "line-through" }} className="showTitle">{elem.name}</div> :
+                                                elem.complete === "true" ?
+                                                    <div style={{ textDecoration: "line-through", fontWeight: "normal", fontStyle: "italic" }} className="showTitle">{elem.name}</div> :
                                                     <div style={{ textDecoration: "none" }} className="showTitle">{elem.name}</div>
                                             }
 
@@ -272,8 +289,8 @@ function Home() {
                                                 {
                                                     elem.show === "true" && (
                                                         <div>
-                                                            <div className="showDisp">DISCRIPTION- {elem.disp}</div>
-                                                            <div className="showPriority">PRIORITY- {elem.priority}</div>
+                                                            <div>DISCRIPTION- <span className="showDisp">{elem.disp}</span></div>
+                                                            <div>PRIORITY- <span className="showPriority">{elem.priority}</span></div>
                                                         </div>
                                                     )
                                                 }
@@ -282,7 +299,7 @@ function Home() {
 
                                             <div className="itemBtn">
                                                 {
-                                                    elem.status === "false" &&
+                                                    elem.complete === "false" &&
                                                         <span>
                                                             <button className="viewBtn" onClick={() => viewItem(elem.id)}>View</button>
                                                             <button className="editBtn" onClick={() => editItem(elem.id)}>Edit</button>
@@ -290,6 +307,12 @@ function Home() {
                                                 }
 
                                                 <button className="dltBtn" onClick={() => deleteItem(elem.id)}>Delete</button>
+                                                {
+                                                    elem.complete === "false" ?
+                                                    <button className="dltBtn" onClick={() => complete(elem.id)} type="checkbox">Complete</button>:
+                                                    <button className="dltBtn" onClick={() => complete(elem.id)} type="checkbox">Resume</button>
+                                                }
+                                                
                                                 <input className="checkbox" onClick={() => markdown(elem.id)} type="checkbox"></input>
                                             </div>
                                         </div>
@@ -306,7 +329,7 @@ function Home() {
                         items.length >= 2 &&
                         <div className="sortBtn">
                             <button onClick={(e) => sortPriority()}>Sort On Priority of TO-Do Item</button>
-                            <button onClick={(e) => sortRecent()}>Sort On Selected To-Do Item </button>
+                            <button onClick={(e) => sortRecent()}>Sort On Completed To-Do Item </button>
                         </div>
                     }
                 </div>
